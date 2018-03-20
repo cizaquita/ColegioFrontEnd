@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<body>
+
+	<div ng-app="myApp" ng-controller="notasCtrl">
+		<ul>
+		  <li ng-repeat="x in notasData">
+		    {{ x.materia}}
+		  </li>
+		</ul>
+	</div>
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('notasCtrl', function($scope, $http) {
+		  $http.get("info_estudiante?ident=123456").then(function (response) {
+		  		console.log(response.data);
+				$scope.notasData = response.data.notas;
+		  });
+		});
+	</script>
+
+	</body>
+</html>
