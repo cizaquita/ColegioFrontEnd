@@ -1,0 +1,28 @@
+<label for="identificacion">Ingrese el número de identificación del alumno:</label>
+
+<input id="identificacion" type="text" (input)="onUpdateAlumnoInfo($event)" class="form-control"/>
+<div class="datos_alumno">
+    <!--h1> {{ tituloRespuesta }} </h1-->
+    <!--Información del alumno -->
+    <h3>Alumno: {{ alumno }}</h3>
+    
+    <div class="table-responsive">
+        <table class="table no-margin">
+            <thead>
+                <tr>
+                    <th>Profesor</th>
+                    <th>Materia</th>
+                    <th>Nota</th>
+                </tr>                
+            </thead>            
+	        <tbody>
+                <tr *ngFor="let nota of notas">
+                    <th>{{ nota.profesor }}</th>
+                    <th>{{ nota.materia }}</th>
+                    <th>{{ nota.nota }}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
